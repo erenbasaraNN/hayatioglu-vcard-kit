@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema/contact.schema.json",
+  "givenName": "Sinan",
+  "familyName": "Topaç",
+  "title": "Kurucu & Genel Müdür",
+  "photo": "portraits/sinan-topac.jpg",
+  "mobile": "+905325770990",
+  "workPhone": "+902166060642",
+  "whatsapp": true,
+  "email": "sinan.topac@hayatioglu.com",
+  "address": {
+    "street": "Atatürk Mh. Ertuğrul Gazi Sk., Metropol İstanbul C1-2B",
+    "district": "Ataşehir",
+    "city": "İstanbul",
+    "country": "Türkiye"
+  }
+}

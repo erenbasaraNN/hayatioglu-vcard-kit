@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kişi kartviziti",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "givenName",
+    "familyName",
+    "photo"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "givenName": {
+      "$ref": "#/definitions/label"
+    },
+    "familyName": {
+      "$ref": "#/definitions/label"
+    },
+    "title": {
+      "$ref": "#/definitions/label"
+    },
+    "photo": {
+      "$ref": "#/definitions/label"
+    },
+    "mobile": {
+      "$ref": "#/definitions/phone"
+    },
+    "workPhone": {
+      "$ref": "#/definitions/phone"
+    },
+    "whatsapp": {
+      "description": "true: cep numarası, false: gizle, uluslararası numara: ayrı WhatsApp hattı.",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "#/definitions/phone"
+        }
+      ]
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[^\\s@?&#%]+@[^\\s@?&#%]+\\.[^\\s@?&#%]+$"
+    },
+    "website": {
+      "description": "Kişiye özel web adresi. null ile web kısayolu gizlenir.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^https?://"
+        }
+      ]
+    },
+    "address": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "street",
+        "city"
+      ],
+      "properties": {
+        "street": {
+          "$ref": "#/definitions/label"
+        },
+        "district": {
+          "$ref": "#/definitions/label"
+        },
+        "city": {
+          "$ref": "#/definitions/label"
+        },
+        "postalCode": {
+          "$ref": "#/definitions/label"
+        },
+        "country": {
+          "$ref": "#/definitions/label"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "whatsapp"
+        ],
+        "properties": {
+          "whatsapp": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "mobile"
+        ]
+      }
+    }
+  ],
+  "definitions": {
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^\\r\\n]+$"
+    },
+    "phone": {
+      "type": "string",
+      "pattern": "^\\+[1-9][0-9]{6,14}$"
+    }
+  }
+}

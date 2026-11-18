@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema/contact.schema.json",
+  "givenName": "Eren",
+  "familyName": "Başaran",
+  "title": "Proje Koordinatörü",
+  "photo": "portraits/eren-basaran.jpg",
+  "mobile": "+905303800080",
+  "whatsapp": true,
+  "email": "eren.basaran@hayatioglu.com",
+  "address": {
+    "street": "Kemalöz, 15. Site Sk. No:52",
+    "district": "Merkez",
+    "city": "Uşak",
+    "postalCode": "64100",
+    "country": "Türkiye"
+  }
+}

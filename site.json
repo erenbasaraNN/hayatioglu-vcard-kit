@@ -1,0 +1,8 @@
+{
+  "$schema": "./schema/site.schema.json",
+  "brand": "Hayatioğlu",
+  "organization": "Hayatioğlu Bilişim Ticaret A.Ş.",
+  "logo": "brand/hayatioglu.png",
+  "website": "https://hayatioglu.com/",
+  "basePath": "/vcard"
+}
